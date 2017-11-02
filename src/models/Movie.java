@@ -4,8 +4,8 @@ import static com.google.common.base.MoreObjects.toStringHelper;
 
 import com.google.common.base.Objects;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Movie {
 	
@@ -15,6 +15,8 @@ public class Movie {
 	public String releaseDate;
 	public String URL;
 	public int[] genre = new int[19];
+	
+	public List<Rating> numRatings = new ArrayList<>();
 	
 	
 	public Movie(String title, String releaseDate, String URL, int[] genre){

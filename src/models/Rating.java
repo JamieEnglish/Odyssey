@@ -7,15 +7,16 @@ import com.google.common.base.Objects;
 
 public class Rating {
 	  
-	  static Long counter = 0l;
-	  public Long RatingID;
-	  public int ItemID;
+	  public Long UserID;
+	  public Long ItemID;
+	  public int rating;
 	  public int timestamp;
 	  
-	  public Rating(long RatingID, int ItemID, int timestamp)
+	  public Rating(Long userID, Long itemID, int rating, int timestamp)
 	  {
-		  this.RatingID = RatingID;
-		  this.ItemID = ItemID;
+		  this.UserID = userID;
+		  this.ItemID = itemID;
+		  this.rating = rating;
 		  this.timestamp = timestamp;
 	  }
 	  
@@ -24,7 +25,7 @@ public class Rating {
 	  @Override
 	  public int hashCode()
 	  {
-		  return Objects.hashCode(this.RatingID, this.ItemID, this.timestamp);
+		  return Objects.hashCode(this.UserID, this.ItemID, this.rating, this.timestamp);
 	  }
 	  
 	  @Override
@@ -33,8 +34,9 @@ public class Rating {
 		  if (obj instanceof Rating) 
 		  {
 			  final Rating other = (Rating) obj;
-			  return Objects.equal(RatingID, other.RatingID)
+			  return Objects.equal(UserID, other.UserID)
 					  && Objects.equal(ItemID, other.ItemID)
+					  && Objects.equal(rating, other.rating)
 					  && Objects.equal(timestamp, other.timestamp);
 		  }
 			  else
