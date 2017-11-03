@@ -41,7 +41,14 @@ public class MovieTest
 	@Test
 	public void testEquals()
 	{
+		Movie testMovie2 = new Movie("Interstellar (2014)", "01-Jan-2014", "http://www.imdb.com/title/tt0816692/?ref_=nv_sr_2");
+		Movie diffMovie = new Movie("Lord of the Rings", "01-May-2001", "http://www.imdb.com/title/Lotr");
 		
+		assertEquals(testMovie, testMovie);
+		assertEquals(testMovie, testMovie2);
+		assertSame(testMovie, testMovie);
+		assertNotSame(testMovie, testMovie2);
+		assertNotEquals(testMovie, diffMovie);
 	}
 
 }

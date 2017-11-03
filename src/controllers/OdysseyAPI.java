@@ -20,6 +20,7 @@ public class OdysseyAPI
 	private static Map<Long, User> userIndex = new HashMap<>();
 	private static Map<Long, Movie> movieIndex = new HashMap<>();
 	private static Map<Long, Rating> ratingIndex = new HashMap<>();
+	private static Map<String, Movie> movieTitleIndex = new HashMap<>();
 	private Serializer serializer;
 	
 	public OdysseyAPI(Serializer serializer)
@@ -94,6 +95,7 @@ public class OdysseyAPI
 	{
 		Movie movie = new Movie(title, releaseDate, URL);
 		movieIndex.put(movie.MovieID, movie);
+		movieTitleIndex.put(title, movie);
 		return movie;
 	}
 	
@@ -126,6 +128,14 @@ public class OdysseyAPI
 		
 	}
 	
+	public static Movie getMoviesByTitle(String title)
+	{
+		return movieTitleIndex.get(title);
+	}
 	
+	public static Movie getMovieByYear(String title)
+	{
+		return null;
+	}
 	
 }
