@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Movie {
 	
-	public long counter = 0l;
+	public static long counter = 0l;
 	public long MovieID;
 	public String title;
 	public String releaseDate;

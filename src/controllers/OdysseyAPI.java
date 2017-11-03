@@ -27,7 +27,28 @@ public class OdysseyAPI
 		this.serializer = serializer;
 	}
 	
-	
+	public void prime() throws Exception
+	{
+		CSVLoader loader = new CSVLoader();
+		
+		List <User> users = loader.loadUsers("moviedata_small/users5.dat");
+		for(User user: users)
+		{
+			userIndex.put(user.UserID, user);
+		}
+		
+		List<Movie> movies = loader.loadMovies("moviedata_small/items5.dat");
+		for(Movie movie: movies)
+		{
+			movieIndex.put(movie.MovieID, movie);
+		}
+		
+		List<Rating> ratings = loader.loadRatings("moviedata_small/ratings5.dat");
+		for(Rating rating: ratings)
+		{
+			ratingIndex.put(rating.UserID, rating);
+		}
+	}
 	
 	@SuppressWarnings("unchecked")
 	  public void load() throws Exception
@@ -36,11 +57,15 @@ public class OdysseyAPI
 	    userIndex = (Map<Long, User>) serializer.pop();
 	    movieIndex = (Map<Long, Movie>) serializer.pop();
 	    ratingIndex = (Map<Long, Rating>) serializer.pop();
+	    User.counter = (Long) serializer.pop();
+	    Movie.counter = (Long) serializer.pop();
 	  }
 	
 	void store() throws Exception
 	  {
-	    serializer.push(userIndex);
+		serializer.push(User.counter);
+		serializer.push(Movie.counter);
+		serializer.push(userIndex);
 	    serializer.push(movieIndex);
 	    serializer.push(ratingIndex);
 	    serializer.write(); 
@@ -65,9 +90,9 @@ public class OdysseyAPI
 	}
 	
 	
-	public Movie addMovie(String title, String releaseDate, String URL, int[] genre)
+	public Movie addMovie(String title, String releaseDate, String URL)
 	{
-		Movie movie = new Movie(title, releaseDate, URL, genre);
+		Movie movie = new Movie(title, releaseDate, URL);
 		movieIndex.put(movie.MovieID, movie);
 		return movie;
 	}

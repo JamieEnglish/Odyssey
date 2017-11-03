@@ -18,7 +18,6 @@ public class UserTest {
 	@Test
 	public void testCreate()
 	{
-		assertEquals(1, myself.counter);
 		assertEquals("jamie", myself.firstName);
 		assertEquals("english", myself.lastName);
 		assertEquals(22, myself.age);

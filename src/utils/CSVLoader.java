@@ -7,6 +7,7 @@ import java.util.List;
 
 import edu.princeton.cs.introcs.In;
 import models.Movie;
+import models.Rating;
 import models.User;
 
 public class CSVLoader 
@@ -58,5 +59,29 @@ public class CSVLoader
 			}
 		}
 		return movies;
+	}
+	
+	public List<Rating> loadRatings(String filename) throws Exception
+	{
+		File ratingsFile = new File(filename);
+		In inRatings = new In(ratingsFile);
+		String delims = "[|]";
+		List<Rating> ratings = new ArrayList<>();
+		while(!inRatings.isEmpty())
+		{
+			String ratingDetails = inRatings.readLine();
+			String[] ratingTokens = ratingDetails.split(delims);
+			if(ratingTokens.length == 5)
+			{
+				Long UserID = Long.valueOf(ratingTokens[0]);
+				Long ItemID = Long.valueOf(ratingTokens[1]);
+				int rating = Integer.valueOf(ratingTokens[2]);
+				int timestamp = Integer.valueOf(ratingTokens[3]);
+				ratings.add(new Rating(UserID, ItemID, rating, timestamp));
+			}else {
+				throw new Exception("Invalid member length: " +ratingTokens.length);
+			}
+		}
+		return ratings;
 	}
 }

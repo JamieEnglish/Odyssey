@@ -8,7 +8,7 @@ import com.google.common.base.Objects;
 
 public class User {
 	
-	public long counter = 0l;
+	public static long counter = 0l;
 	public long UserID;
 	public String firstName;
 	public String lastName;
