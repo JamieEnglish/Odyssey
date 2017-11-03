@@ -17,9 +17,9 @@ import models.User;
 
 public class OdysseyAPI 
 {	
-	private Map<Long, User> userIndex = new HashMap<>();
-	private Map<Long, Movie> movieIndex = new HashMap<>();
-	private Map<Long, Rating> ratingIndex = new HashMap<>();
+	private static Map<Long, User> userIndex = new HashMap<>();
+	private static Map<Long, Movie> movieIndex = new HashMap<>();
+	private static Map<Long, Rating> ratingIndex = new HashMap<>();
 	private Serializer serializer;
 	
 	public OdysseyAPI(Serializer serializer)
@@ -79,7 +79,7 @@ public class OdysseyAPI
 		return user;
 	}
 	
-	public User getUser(long UserID)
+	public static User getUser(long UserID)
 	{
 		return userIndex.get(UserID);
 	}
@@ -97,7 +97,7 @@ public class OdysseyAPI
 		return movie;
 	}
 	
-	public Movie getMovie(Long MovieID)
+	public static Movie getMovie(Long MovieID)
 	{
 		return movieIndex.get(MovieID);
 	}
@@ -125,5 +125,7 @@ public class OdysseyAPI
 		return ratingIndex.get(UserID);
 		
 	}
+	
+	
 	
 }

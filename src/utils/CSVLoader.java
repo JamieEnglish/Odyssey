@@ -71,7 +71,7 @@ public class CSVLoader
 		{
 			String ratingDetails = inRatings.readLine();
 			String[] ratingTokens = ratingDetails.split(delims);
-			if(ratingTokens.length == 5)
+			if(ratingTokens.length == 4)
 			{
 				Long UserID = Long.valueOf(ratingTokens[0]);
 				Long ItemID = Long.valueOf(ratingTokens[1]);

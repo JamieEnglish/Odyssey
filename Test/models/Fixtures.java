@@ -11,5 +11,11 @@ public class Fixtures
 		    new User ("Kamil", "Bigos", 18, "M", "Hacker", "33333")
 			}; 
 	
+	public static Movie[] movies =
+		{
+			new Movie("Instellar", "2014", "Https//www.imdb.com/instellar"),
+			new Movie("Dunkirk", "2017", "Https//www.imdb.com/Dunkirk")
+		};
+	
 
 }

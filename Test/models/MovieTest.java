@@ -1,6 +1,10 @@
 package models;
 
+import static models.Fixtures.movies;
 import static org.junit.Assert.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.Test;
 
@@ -17,9 +21,21 @@ public class MovieTest
 	}
 	
 	@Test
-	public void testToString()
-	{
-		
+	  public void testIds()
+	  {
+	    Set<Long> ids = new HashSet<>();
+	    for (Movie movie : movies)
+	    {
+	      ids.add(movie.MovieID);
+	    }
+	    assertEquals (movies.length, ids.size());
+	  }
+	
+	@Test
+	public void testToString() {
+		assertEquals("Movie{" + testMovie.MovieID + ", Interstellar (2014), 01-Jan-2014, http://www.imdb.com/title/tt0816692/?ref_=nv_sr_2}"
+
+		, testMovie.toString());
 	}
 	
 	@Test
