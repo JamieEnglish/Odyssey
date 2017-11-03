@@ -21,13 +21,13 @@ public class User {
 	
 	public User(String firstName, String lastName, int age, String gender, String occupation, String zipCode)
 	  {
+		this.UserID = counter++;
 		this.firstName = firstName;
 	    this.lastName = lastName;
 	    this.age = age;
 	    this.gender = gender;
 	    this.occupation = occupation;
 	    this.zipCode = zipCode;
-	    this.UserID = counter++;
 	  }
 	
 	@Override

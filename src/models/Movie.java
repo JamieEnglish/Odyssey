@@ -14,17 +14,16 @@ public class Movie {
 	public String title;
 	public String releaseDate;
 	public String URL;
-	public int[] genre = new int[19];
+	
 	
 	public List<Rating> numRatings = new ArrayList<>();
 	
 	
-	public Movie(String title, String releaseDate, String URL, int[] genre){
+	public Movie(String title, String releaseDate, String URL){
 		this.MovieID = counter++;
 		this.title = title;
 		this.releaseDate = releaseDate;
 		this.URL = URL;
-		this.genre = genre;
 }
 
 	@Override
@@ -33,14 +32,13 @@ public class Movie {
 			   					   .addValue(title)
 			   					   .addValue(releaseDate)
 			   					   .addValue(URL)
-			   					   .addValue(genre)
 			   					   .toString();
 	}
 	
 	@Override  
 	  public int hashCode()  
 	  {  
-	     return Objects.hashCode(this.MovieID, this.title, this.releaseDate, this.URL, this.genre);  
+	     return Objects.hashCode(this.MovieID, this.title, this.releaseDate, this.URL);  
 	  }
 	
 	@Override
@@ -52,8 +50,7 @@ public class Movie {
 	      return Objects.equal(MovieID, other.MovieID) 
 	          && Objects.equal(title,  other.title)
 	          && Objects.equal(releaseDate,     other.releaseDate)
-	          && Objects.equal(URL,  other.URL)
-	          && Objects.equal(genre, other.genre);
+	          && Objects.equal(URL,  other.URL);
 	    }
 	    else
 	    {
